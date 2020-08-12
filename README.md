@@ -66,10 +66,13 @@ Nessa sessão será demonstrado cada funcionalidade e as respectivas respostas d
 Método responsável pela busca dos planetas de forma paginada
 
 - **Endpoint**
+
     https://planetsapib2w.herokuapp.com/api/planets
 - **Método HTTP**
+
     GET
 - **Query Parameters**
+
     Parâmetros |Tipo| Descrição | Valor Default | Obrigatório 
     ------------ | ------------- | ------------- | ------------- | ------------- 
     name |String|Se informado, irá efetuar a busca pelo nome do planeta|✖| ✖
@@ -80,17 +83,23 @@ Método responsável pela busca dos planetas de forma paginada
     - **Atenção:** a paginação começa com o índice 0. Ex.: Caso deseje a página 2, informe o número 1 no parâmetro
     
 - **Exemplos de Requisições**
+
     Busca pela primeira página trazendo cinco planetas por página
+    
     `curl -X GET "https://planetsapib2w.herokuapp.com/api/planets?page=0&size=5" -H "accept: application/json"`
 
     Busca pelo planeta Tatooine
+    
     `curl -X GET "https://planetsapib2w.herokuapp.com/api/planets?name=Tatooine" -H "accept: application/json"`
     
     Busca por planetas com a letra a trazendo 20 resultados por página
+    
     `curl -X GET "https://planetsapib2w.herokuapp.com/api/planets?name=a&size=20" -H "accept: application/json"`
     
 - **Respostas**
+
     **HTTP 200**: Planeta(s) encontrados
+    
     `{
 "content": [
 {
@@ -166,20 +175,27 @@ Método responsável pela busca dos planetas de forma paginada
 Método responsável pelo acesso ao planeta pelo id
 
 - **Endpoint**
-    https://planetsapib2w.herokuapp.com/api/planets/**{id}**
+
+    https://planetsapib2w.herokuapp.com/api/planets/{id}
 - **Método HTTP**
+
     GET
 - **Path Parameters**
+
     Parâmetros |Tipo| Descrição | Obrigatório 
     ------------ | ------------- | ------------- | ------------- 
     ID |String|ID do planeta|✓ 
     
 - **Exemplos de Requisições**
+
     Busca pelo id do planeta
+    
     `curl -X GET "https://planetsapib2w.herokuapp.com/api/planets/5f31ddac7cc70566188aa13b" -H "accept: application/json"`
     
 - **Respostas**
+
     **HTTP 200**: Planeta encontrados
+    
     `{
 "id": "5f31ddac7cc70566188aa13b",
 "name": "Tatooine",
@@ -189,6 +205,7 @@ Método responsável pelo acesso ao planeta pelo id
 }`
 
     **HTTP 404**: Planeta não encontrado
+    
     `{
 "userMessage": "The resource was not found by your filters",
 "developerMessage": "PlanetServiceImpl.findById : Not found on database"
@@ -198,11 +215,14 @@ Método responsável pelo acesso ao planeta pelo id
 Método responsável pela criação do planeta
 
 - **Endpoint**
+
     https://planetsapib2w.herokuapp.com/api/planets
 - **Método HTTP**
+
     POST
 
 - **Exemplos de Requisições**
+
     Criação do planeta
     Atributos do objeto |Tipo| Descrição | Obrigatório 
     ------------ | ------------- | ------------- | ------------- 
@@ -221,10 +241,13 @@ Método responsável pela criação do planeta
 }`
     
 - **Respostas**
+
     **HTTP 201**: Planeta criado
+    
     Será informado a localização do recurso no Location, dentro dos headers da requisição
 
     **HTTP 400**: Planeta não criado devido atributos obrigatórios nulos
+    
     `[
     {
         "userMessage": "Planet: The attribute name is required",
@@ -233,25 +256,32 @@ Método responsável pela criação do planeta
 ]`
 
 ### Remoção do planeta
+
 Método responsável pela exclusão do planeta
 
 - **Endpoint**
-    https://planetsapib2w.herokuapp.com/api/planets/**{id}**
+
+    https://planetsapib2w.herokuapp.com/api/planets/{id}
 - **Método HTTP**
+
     DELETE
 - **Path Parameters**
+
     Parâmetros |Tipo| Descrição | Obrigatório 
     ------------ | ------------- | ------------- | ------------- 
     ID |String|ID do planeta|✓ 
 
 - **Exemplos de Requisições**
+
     Exclusão do planeta
     `curl -X DELETE "https://planetsapib2w.herokuapp.com/api/planets/{id}" -H "accept: application/json"`
     
 - **Respostas**
+
     **HTTP 204**: Planeta deletado com sucesso
 
     **HTTP 404**: Planeta não encontrado
+    
     `{
 "userMessage": "The resource was not found by your filters",
 "developerMessage": "PlanetServiceImpl.findById : Not found on database"
