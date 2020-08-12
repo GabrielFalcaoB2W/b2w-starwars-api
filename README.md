@@ -1,14 +1,15 @@
-# B2W Starwars API
+# [B2W Starwars API](https://planetsapib2w.herokuapp.com/swagger-ui.html#/)
 ---
  ## Índice
-    1. Introdução
-    2. Modelo
-    3. Funcionalidades e Respostas
-        3.1 Busca paginada de planeta e/ou pelo nome
-        3.2 Busca do planeta pelo id
-        3.3 Criação do planeta
-        3.4 Remoção do planeta
-    4. Tecnologias utilizadas
+
+- [Introdução](#introducao)
+- [Modelo](#modelo)
+- [Funcionalidades e Respostas](#funcionalidades-e-respostas)
+-- Busca paginada de planeta e/ou pelo nome
+-- Busca do planeta pelo id
+-- Criação do planeta
+-- Remoção do planeta
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 ## Introdução
 A B2W Starwars API tem a intenção de disponibilizar aos seus usuários funcionalidades acerca dos planetas do universo Starwars, tais como a busca, remoção e inserção dos mesmos.
