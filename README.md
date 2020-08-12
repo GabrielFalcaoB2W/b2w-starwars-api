@@ -100,76 +100,80 @@ Método responsável pela busca dos planetas de forma paginada
 
     **HTTP 200**: Planeta(s) encontrados
     
-    `{
-"content": [
+```json
 {
-"id": "5f31ddac7cc70566188aa13b",
-"name": "Tatooine",
-"climate": "arid",
-"terrain": "desert",
-"timesOnMovies": 5
-},
-{
-"id": "5f31ddac7cc70566188aa13c",
-"name": "Alderaan",
-"climate": "temperate",
-"terrain": "grasslands, mountains",
-"timesOnMovies": 2
-},
-{
-"id": "5f31ddac7cc70566188aa13d",
-"name": "Yavin IV",
-"climate": "temperate, tropical",
-"terrain": "jungle, rainforests",
-"timesOnMovies": 1
-},
-{
-"id": "5f31ddac7cc70566188aa13e",
-"name": "Hoth",
-"climate": "frozen",
-"terrain": "tundra, ice caves, mountain ranges",
-"timesOnMovies": 1
-},
-{
-"id": "5f31ddac7cc70566188aa13f",
-"name": "Dagobah",
-"climate": "murky",
-"terrain": "swamp, jungles",
-"timesOnMovies": 3
+   "content":[
+      {
+         "id":"5f31ddac7cc70566188aa13b",
+         "name":"Tatooine",
+         "climate":"arid",
+         "terrain":"desert",
+         "timesOnMovies":5
+      },
+      {
+         "id":"5f31ddac7cc70566188aa13c",
+         "name":"Alderaan",
+         "climate":"temperate",
+         "terrain":"grasslands, mountains",
+         "timesOnMovies":2
+      },
+      {
+         "id":"5f31ddac7cc70566188aa13d",
+         "name":"Yavin IV",
+         "climate":"temperate, tropical",
+         "terrain":"jungle, rainforests",
+         "timesOnMovies":1
+      },
+      {
+         "id":"5f31ddac7cc70566188aa13e",
+         "name":"Hoth",
+         "climate":"frozen",
+         "terrain":"tundra, ice caves, mountain ranges",
+         "timesOnMovies":1
+      },
+      {
+         "id":"5f31ddac7cc70566188aa13f",
+         "name":"Dagobah",
+         "climate":"murky",
+         "terrain":"swamp, jungles",
+         "timesOnMovies":3
+      }
+   ],
+   "pageable":{
+      "sort":{
+         "sorted":false,
+         "unsorted":true,
+         "empty":true
+      },
+      "pageNumber":0,
+      "pageSize":5,
+      "offset":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":false,
+   "totalElements":60,
+   "totalPages":12,
+   "first":true,
+   "sort":{
+      "sorted":false,
+      "unsorted":true,
+      "empty":true
+   },
+   "numberOfElements":5,
+   "size":5,
+   "number":0,
+   "empty":false
 }
-],
-"pageable": {
-"sort": {
-"sorted": false,
-"unsorted": true,
-"empty": true
-},
-"pageNumber": 0,
-"pageSize": 5,
-"offset": 0,
-"paged": true,
-"unpaged": false
-},
-"last": false,
-"totalElements": 60,
-"totalPages": 12,
-"first": true,
-"sort": {
-"sorted": false,
-"unsorted": true,
-"empty": true
-},
-"numberOfElements": 5,
-"size": 5,
-"number": 0,
-"empty": false
-}`
+```
 
-    **HTTP 404**: Planeta não encontrado
-    `{
-"userMessage": "The resource was not found by your filters",
-"developerMessage": "PlanetServiceImpl.findByName : Not found on database"
-}`
+**HTTP 404**: Planeta não encontrado
+```json
+{
+   "userMessage":"The resource was not found by your filters",
+   "developerMessage":"PlanetServiceImpl.findByName : Not found on database"
+}
+```
 
 ### Busca do planeta pelo id e/ou pelo nome
 Método responsável pelo acesso ao planeta pelo id
@@ -194,22 +198,26 @@ Método responsável pelo acesso ao planeta pelo id
     
 - **Respostas**
 
-    **HTTP 200**: Planeta encontrados
+**HTTP 200**: Planeta encontrados
     
-    `{
-"id": "5f31ddac7cc70566188aa13b",
-"name": "Tatooine",
-"climate": "arid",
-"terrain": "desert",
-"timesOnMovies": 5
-}`
+```json
+{
+   "id":"5f31ddac7cc70566188aa13b",
+   "name":"Tatooine",
+   "climate":"arid",
+   "terrain":"desert",
+   "timesOnMovies":5
+}
+```
 
-    **HTTP 404**: Planeta não encontrado
+**HTTP 404**: Planeta não encontrado
     
-    `{
-"userMessage": "The resource was not found by your filters",
-"developerMessage": "PlanetServiceImpl.findById : Not found on database"
-}`
+```json
+{
+   "userMessage":"The resource was not found by your filters",
+   "developerMessage":"PlanetServiceImpl.findById : Not found on database"
+}
+```
 
 ### Criação do planeta
 Método responsável pela criação do planeta
@@ -233,12 +241,14 @@ Método responsável pela criação do planeta
     TimesOnMovies |Integer|Quantidade de vezes vista nos filmes|✖
     >**Atenção:** o atributo timesOnMovies tem como valor default o 0
 
-    `{
-	"name"	  : "Planet",
-	"climate" : "Climate",
-	"terrain" : "Terrain",
-    "timesOnMovies" : 15
-}`
+```json
+{
+   "name":"Planet",
+   "climate":"Climate",
+   "terrain":"Terrain",
+   "timesOnMovies":15
+}
+```
     
 - **Respostas**
 
@@ -248,12 +258,14 @@ Método responsável pela criação do planeta
 
     **HTTP 400**: Planeta não criado devido atributos obrigatórios nulos
     
-    `[
-    {
-        "userMessage": "Planet: The attribute name is required",
-        "developerMessage": "Validation failed for argument [0] in public org.springframework.http.ResponseEntity<io.b2w.starwars.model.Planet> io.b2w.starwars.controller.PlanetController.create(io.b2w.starwars.model.Planet) throws java.net.URISyntaxException: [Field error in object 'planet' on field 'name': rejected value [null]; codes [NotBlank.planet.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [planet.name,name]; arguments []; default message [name]]; default message [The attribute name is required]] "
-    }
-]`
+```json
+[
+   {
+      "userMessage":"Planet: The attribute name is required",
+      "developerMessage":"Validation failed for argument [0] in public org.springframework.http.ResponseEntity<io.b2w.starwars.model.Planet> io.b2w.starwars.controller.PlanetController.create(io.b2w.starwars.model.Planet) throws java.net.URISyntaxException: [Field error in object 'planet' on field 'name': rejected value [null]; codes [NotBlank.planet.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [planet.name,name]; arguments []; default message [name]]; default message [The attribute name is required]] "
+   }
+]
+```
 
 ### Remoção do planeta
 
@@ -282,10 +294,12 @@ Método responsável pela exclusão do planeta
 
     **HTTP 404**: Planeta não encontrado
     
-    `{
-"userMessage": "The resource was not found by your filters",
-"developerMessage": "PlanetServiceImpl.findById : Not found on database"
-}`
+```json
+{
+   "userMessage":"The resource was not found by your filters",
+   "developerMessage":"PlanetServiceImpl.findById : Not found on database"
+}
+```
 
 ## Tecnologias utilizadas
 Foram utilizados os seguintes frameworks e/ou ferramentas:
