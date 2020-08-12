@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import javax.validation.constraints.NotBlank;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,14 +25,22 @@ import lombok.Setter;
 public class Planet {
 
 	@Id
+	@ApiModelProperty(value = "Código do planeta")
 	@JsonProperty(access = Access.READ_ONLY)
 	private String id;
 	
 	@NotBlank(message = "The attribute name is required")
+	@ApiModelProperty(value = "Nome do planeta")
 	private String name;
+	
+	@ApiModelProperty(value = "Clima do planeta")
 	@NotBlank(message = "The attribute climate is required")
 	private String climate;
+	
+	@ApiModelProperty(value = "Terreno do planeta")
 	@NotBlank(message = "The attribute terrain is required")
 	private String terrain;
+	
+	@ApiModelProperty(value = "Nº de aparições em filmes")
 	private int timesOnMovies;
 }

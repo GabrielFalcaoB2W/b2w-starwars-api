@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.NoSuchElementException;
 
 import org.junit.Test;
-import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +19,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import io.b2w.starwars.model.Planet;
 
+/**
+ * Unit tests on the planet controller.
+ * 
+ * @author Gabriel Falcão
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PlanetControllerTests {
@@ -50,17 +54,17 @@ public class PlanetControllerTests {
 	final int SIZE_BY_PAGE = 5;
 
 	@Test
-	@Order(1)
-	public void createPlanet() throws Exception {
+	public void createAndRemovePlanet() throws Exception {
 		ResponseEntity<Planet> response = controller.create(planet);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
-	}
-	
-	@Test
-	@Order(2)
-	public void removePlanet() throws Exception {
-		ResponseEntity<Planet> response = controller.remove(planet.getId());
+		
+		response = controller.remove(planet.getId());
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+	}
+
+	@Test
+	public void removePlanetWithError() {
+		assertThrows(NoSuchElementException.class, () -> controller.remove(planet.getId()));
 	}
 	
 	@Test

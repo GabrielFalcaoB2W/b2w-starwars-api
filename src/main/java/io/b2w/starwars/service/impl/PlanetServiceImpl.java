@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import io.b2w.starwars.model.Planet;
@@ -15,7 +14,6 @@ import io.b2w.starwars.repository.PlanetRepository;
 import io.b2w.starwars.service.PlanetService;
 
 @Service
-@Transactional
 public class PlanetServiceImpl implements PlanetService {
 
 	@Autowired
@@ -34,6 +32,12 @@ public class PlanetServiceImpl implements PlanetService {
 	@Override
 	public Planet findById(String id) {
 		return planetRepository.findById(id).orElseThrow(() -> new NoSuchElementException("PlanetServiceImpl.findById : Not found on database"));
+	}
+	
+	@Override
+	public void deleteById(String id) {
+		this.findById(id);
+		planetRepository.deleteById(id);
 	}
 	
 	private Page<Planet> findByName(String name, Pageable pageable) {

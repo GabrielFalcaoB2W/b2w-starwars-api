@@ -10,4 +10,5 @@ public interface PlanetService {
 	void insert(Planet planet);
 	Planet findById(String id);
 	Page<Planet> find(String name, Pageable pageable);
+	void deleteById(String id);
 }
