@@ -5,10 +5,10 @@
 - [Introdução](#introduçao)
 - [Modelo](#modelo)
 - [Funcionalidades e Respostas](#funcionalidades-e-respostas)
- - Busca paginada de planeta e/ou pelo nome
- - Busca do planeta pelo id
- - Criação do planeta
- - Remoção do planeta
+  - Busca paginada de planeta e/ou pelo nome
+  - Busca do planeta pelo id
+  - Criação do planeta
+  - Remoção do planeta
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 ## Introdução
