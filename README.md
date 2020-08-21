@@ -9,7 +9,7 @@
   - Busca do planeta pelo id
   - Criação do planeta
   - Remoção do planeta
-- [Executando o projeto localmente](executando-o-projeto-localmente) 
+- [Executando o projeto localmente](#executando-o-projeto-localmente) 
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 ## Introdução
