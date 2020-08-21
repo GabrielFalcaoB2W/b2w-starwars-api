@@ -9,6 +9,7 @@
   - Busca do planeta pelo id
   - Criação do planeta
   - Remoção do planeta
+- [Executando o projeto localmente](executando-o-projeto-localmente) 
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 ## Introdução
@@ -300,6 +301,27 @@ Método responsável pela exclusão do planeta
    "developerMessage":"PlanetServiceImpl.findById : Not found on database"
 }
 ```
+
+## Executando o projeto localmente
+Para executar o projeto localmente parte-se do pressuposto que você tenha o Java 8 instalado em sua máquina.
+
+Com isso, o Spring Boot nos facilita  bastante, basta baixar esse projeto em .ZIP, ou cloná-lo para a pasta de sua preferência.
+
+Assim que cloná-lo, abra o terminal do seu sistema na pasta principal (/b2w-starwars-api) e digite um dos comandos abaixo de sua preferência:
+
+Para executar o projeto no Windows:
+`mvnw.cmd spring-boot:run`
+
+Para executar o projeto no Linux:
+`./mvnw spring-boot:run`
+
+>Atenção: Certifique-se que para rodar o projeto a porta :8080 esteja livre
+
+Para executar os testes no Windows:
+`mvnw.cmd test`
+
+Para executar os testes no Linux:
+`./mvnw test`
 
 ## Tecnologias utilizadas
 Foram utilizados os seguintes frameworks e/ou ferramentas:
