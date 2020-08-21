@@ -323,6 +323,8 @@ Para executar os testes no Windows:
 Para executar os testes no Linux:
 `./mvnw test`
 
+>Fique tranquilo! Não é necessário configurar nenhum banco de dados, a aplicação já está configurada com o banco de dados na nuvem, basta rodar e usar.
+
 ## Tecnologias utilizadas
 Foram utilizados os seguintes frameworks e/ou ferramentas:
 
